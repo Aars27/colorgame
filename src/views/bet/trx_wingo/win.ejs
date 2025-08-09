@@ -1,0 +1,485 @@
+<html lang="en" translate="no" data-dpr="1" dir="ltr" style="font-size: 37px;">
+
+<head>
+   <script src="/app.config.js?v=1718968461132"></script>
+
+   <meta charset="UTF-8">
+   <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+   <meta name="google" content="notranslate">
+   <meta name="robots" content="noindex,nofollow">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+   <link rel="manifest" href="/manifest.tiranga.json?version=1.1">
+   <title>BigMumbai</title>
+
+   <link rel="modulepreload" crossorigin="" href="/assets/js/modules-6b0d6df4.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/native/index-7b2487e5.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/en-93cdab10.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/rus-ecb14220.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/vi-40bd560a.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/id-24cc3835.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/hd-c5b1d7e8.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/tha-330057b2.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/md-02b1fc1c.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/bra-1f3ea623.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/my-80d37f62.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/bdt-d8f19d0c.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/zh-3589f8b3.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/pak-9f46abf2.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/ar-64903102.js">
+   <link rel="modulepreload" crossorigin="" href="/assets/js/page-activity-d3ba61d1.js">
+   <link rel="stylesheet" href="/assets/css/modules-b642e9bc.css">
+   <link rel="stylesheet" href="/assets/css/page-activity-4fe5c6bf.css">
+   <link rel="stylesheet" href="/assets/css/index-2c2fee84.css">
+   <link rel="stylesheet" href="/assets/css/page-home-482c7bbf.css" />
+
+
+
+   <link rel="stylesheet" href="/assets/css/page-home-522c97b9.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js"
+      integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"
+      integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
+      crossorigin="anonymous"></script>
+
+      <style>
+         .GameRecord__C-body .number.num4[data-v-7a795a91]{
+             background-color: #f53d45 !important;
+         }
+         .GameRecord__C-body .number.num2[data-v-7a795a91], .GameRecord__C-body .number.num4[data-v-7a795a91], .GameRecord__C-body .number.num6[data-v-7a795a91], .GameRecord__C-body .number.num8[data-v-7a795a91] {
+    background-color:#f53d45;
+}
+.GameRecord__C-foot-previous[data-v-7a795a91], .GameRecord__C-foot-next[data-v-7a795a91] {
+    width: .93333rem;
+    height: .93333rem;
+    border-radius: .13333rem;
+    background: #1716d4;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex
+;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.Trend__C-body2-Num-item.action2[data-v-d485a39d], .Trend__C-body2-Num-item.action4[data-v-d485a39d], .Trend__C-body2-Num-item.action6[data-v-d485a39d], .Trend__C-body2-Num-item.action8[data-v-d485a39d] {
+    border: none;
+    color: #000000;
+    background-color: #fcef9f;
+    position: relative;
+    z-index: 10;
+}
+@media (min-width: 501px) {
+                .van-popup.van-popup--center {
+                    max-width: 10rem;
+                }
+            }
+
+            .van-popup--center.van-popup--round {
+                border-radius: var(--van-popup-round-radius);
+            }
+
+            .bet-rule[data-v-a2883285] {
+                width: 8rem;
+                border-top-left-radius: .21333rem;
+                border-top-right-radius: .21333rem
+            }
+
+            .bet-rule-head[data-v-a2883285] {
+                height: 1.17333rem;
+                line-height: 1.17333rem;
+                color: #fff;
+                font-size: .42667rem;
+                text-align: center;
+                background: #1b11b2;
+                background-size: contain
+            }
+
+            .bet-rule-head span[data-v-a2883285] {
+                margin: 0 .13333rem
+            }
+
+            .bet-rule-dot[data-v-a2883285] {
+                height: .08rem;
+                width: .08rem;
+                background: #fff;
+                border-radius: 50%
+            }
+
+            .bet-rule-body[data-v-a2883285] {
+                position: relative;
+                height: 9.33333rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+                color: var(--text_color_L1);
+                padding: .26667rem .26667rem 0;
+                font-weight: 500;
+                font-size: .37333rem;
+                line-height: .53333rem
+            }
+
+            .bet-rule-body[data-v-a2883285] p {
+                line-height: .53333rem;
+                color: #000000;
+            }
+
+            .bet-rule-foot[data-v-a2883285] {
+                height: 1.6rem;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                align-items: center
+            }
+
+            .bet-rule-foot-btn[data-v-a2883285] {
+                width: 4.26667rem;
+                background: #1b11b2;
+                border-radius: .53333rem;
+                height: 1.06667rem;
+                line-height: 1.06667rem;
+                text-align: center;
+                font-size: .37333rem;
+                color: #fff;
+                font-weight: 500
+            }
+
+            .van-toast[data-v-7004d918] {
+                word-break: break-word!important
+            }
+
+            .cg-default.van-button[data-v-7004d918] {
+                font-weight: 700;
+                font-size: .4rem
+            }
+
+            .cg-default.van-button .van-button__icon[data-v-7004d918] {
+                height: 100%;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-align: center;
+                -webkit-align-items: center;
+                align-items: center
+            }
+            .van-overlay{
+               background: #00000047;
+            }
+            .how-to-play{
+               background: #ffffff;
+            }
+     </style>
+</head>
+
+<body class="" style="font-size: 12px;">
+ 
+   
+
+   <div id="app" data-v-app="">
+      <div data-v-647954c7="" class="ar-loading-view"
+         style="display: none; --f13b4d11-currentFontFamily: 'Roboto', 'Inter', sans-serif;">
+         <div data-v-647954c7="" class="loading-wrapper"><!-- <VanLoading /> -->
+            <div data-v-647954c7="" class="loading-animat"><svg xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="200" height="200"
+                  preserveAspectRatio="xMidYMid meet"
+                  style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                  <defs>
+                     <clipPath id="__lottie_element_2">
+                        <rect width="200" height="200" x="0" y="0"></rect>
+                     </clipPath>
+                     <image xlink:href="/logo_loading.png">
+                     </image>
+                     <image
+                        xlink:href="data:image/png;base64,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">
+                     </image>
+                  </defs>
+                  <g clip-path="url(#__lottie_element_2)">
+                     <g class="ai"
+                        transform="matrix(-0.9911414980888367,0.13280996680259705,-0.13280996680259705,-0.9911414980888367,212.3951416015625,185.83316040039062)"
+                        opacity="1" style="display: block;">
+                        <image width="200px" height="200px" preserveAspectRatio="xMidYMid slice"
+                           xlink:href="data:image/png;base64,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">
+                        </image>
+                     </g>
+                     <g class="png"
+                        transform="matrix(1.0915199518203735,0,0,1.0915199518203735,16.49872589111328,78.16960144042969)"
+                        opacity="1" style="display: block;">
+                        <image width="163px" height="60px" preserveAspectRatio="xMidYMid slice"
+                           xlink:href="/logo_loading.png">
+                        </image>
+                     </g>
+                  </g>
+               </svg></div>
+            <div data-v-647954c7="" class="com__box" style="display: none;"><!-- loading -->
+               <div class="loading" data-v-647954c7="">
+                  <div class="shape shape-1" data-v-647954c7=""></div>
+                  <div class="shape shape-2" data-v-647954c7=""></div>
+                  <div class="shape shape-3" data-v-647954c7=""></div>
+                  <div class="shape shape-4" data-v-647954c7=""></div>
+               </div><!-- 说明：组件名 -->
+            </div><!-- <div class="animation"></div> -->
+         </div>
+         <div data-v-647954c7="" class="skeleton-wrapper" style="display: none;">
+            <div data-v-647954c7="" class="van-skeleton van-skeleton--animate"><!---->
+               <div class="van-skeleton__content"><!---->
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+               </div>
+            </div>
+            <div data-v-647954c7="" class="van-skeleton van-skeleton--animate">
+               <div class="van-skeleton-avatar van-skeleton-avatar--round"></div>
+               <div class="van-skeleton__content">
+                  <h3 class="van-skeleton-title"></h3>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+               </div>
+            </div>
+            <div data-v-647954c7="" class="van-skeleton van-skeleton--animate"><!---->
+               <div class="van-skeleton__content">
+                  <h3 class="van-skeleton-title"></h3>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 100%;"></div>
+                  <div class="van-skeleton-paragraph" style="width: 60%;"></div>
+               </div>
+            </div>
+         </div>
+      </div><!--v-if-->
+      <div data-v-ac90c264="" class="WinTrx__C" style="--f13b4d11-currentFontFamily: 'Roboto', 'Inter', sans-serif;">
+         <div data-v-12a80a3e="" data-v-ac90c264="" class="navbar main">
+            <div data-v-12a80a3e="" class="navbar-fixed">
+               <div data-v-12a80a3e="" class="navbar__content">
+                  <div data-v-12a80a3e="" class="navbar__content-left" onclick="history.back()"><i data-v-12a80a3e=""
+                        class="van-badge__wrapper van-icon van-icon-arrow-left"><!----><!----><!----></i></div>
+                  <div data-v-12a80a3e="" class="navbar__content-center">
+                     <div data-v-12a80a3e="" onclick="location.href = '/home'" class="headLogo"
+                        style="background-image: url(&quot;/h5setting_202308141709544lm1.png&quot;);">
+                     </div>
+                     <div data-v-12a80a3e="" class="navbar__content-title"></div>
+                  </div>
+                  <div data-v-12a80a3e="" class="navbar__content-right">
+                     <div data-v-ac90c264="" class="WinTrx__C-head-more">
+                        <div data-v-ac90c264="" onclick="location.href = '/support'"></div>
+                        <div data-v-ac90c264="" class="" id="audio_button"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div><!-- 钱包余额 -->
+         <%- include('element/info.ejs') -%>
+            <%- include('element/e_tab_time.ejs') -%>
+               <div data-v-3c1bee29="" data-v-ac90c264="" class="TimeLeft__C">
+                  <div data-v-3c1bee29="" class="TimeLeft__C-l1">
+                     <div data-v-3c1bee29="" class="TimeLeft__C-l1-l">
+                        <div data-v-3c1bee29="" class="TimeLeft__C-l1-no">Period</div>
+                        <div data-v-3c1bee29="" class="TimeLeft__C-l1-tip tf_C-l1-tip how-to-play"><svg data-v-3c1bee29=""
+                           xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                           <path data-v-3c1bee29=""
+                              d="M9.67074 29.1107L9.66322 29.1182L9.65598 29.126C9.02654 29.8017 8.45747 30.2157 7.98006 30.4218C7.50853 30.6254 7.16285 30.6135 6.91422 30.5064C6.6612 30.3975 6.39655 30.1416 6.18925 29.6333C5.98114 29.123 5.85 28.3992 5.85 27.45V10.56C5.85 7.52835 6.21824 5.86758 7.1019 4.92303C7.97224 3.99272 9.4962 3.6 12.33 3.6H23.67C26.5041 3.6 28.0275 3.99282 28.8959 4.92264C29.7774 5.86659 30.1425 7.52679 30.135 10.5585V10.56V27.435C30.135 28.3846 30.0047 29.1087 29.7975 29.6192C29.5911 30.1278 29.3276 30.383 29.076 30.4916C28.8287 30.5983 28.4837 30.6106 28.011 30.4067C27.5326 30.2004 26.9615 29.7861 26.3282 29.1102C25.6005 28.3296 24.6554 27.9468 23.7086 27.9984C22.7618 28.0499 21.8639 28.5332 21.225 29.385L21.2246 29.3856L19.7116 31.4079C19.7113 31.4083 19.711 31.4087 19.7107 31.4091C19.1996 32.0836 18.5725 32.3738 17.9925 32.3738C17.4125 32.3738 16.7854 32.0836 16.2743 31.4091C16.274 31.4087 16.2737 31.4083 16.2734 31.4079L14.7606 29.3858C14.7605 29.3857 14.7605 29.3856 14.7604 29.3856C13.4723 27.6623 11.1634 27.5349 9.67973 29.1017L9.67074 29.1107ZM9.57 16.5C9.57 17.6564 10.5136 18.6 11.67 18.6C12.8264 18.6 13.77 17.6564 13.77 16.5C13.77 15.3436 12.8264 14.4 11.67 14.4C10.5136 14.4 9.57 15.3436 9.57 16.5ZM9.57 10.5C9.57 11.6564 10.5136 12.6 11.67 12.6C12.8264 12.6 13.77 11.6564 13.77 10.5C13.77 9.34363 12.8264 8.4 11.67 8.4C10.5136 8.4 9.57 9.34363 9.57 10.5ZM16.095 18.225H24.345C25.2914 18.225 26.07 17.4464 26.07 16.5C26.07 15.5536 25.2914 14.775 24.345 14.775H16.095C15.1486 14.775 14.37 15.5536 14.37 16.5C14.37 17.4464 15.1486 18.225 16.095 18.225ZM16.095 12.225H24.345C25.2914 12.225 26.07 11.4464 26.07 10.5C26.07 9.55363 25.2914 8.775 24.345 8.775H16.095C15.1486 8.775 14.37 9.55363 14.37 10.5C14.37 11.4464 15.1486 12.225 16.095 12.225Z"
+                              stroke="currentColor" stroke-width="1.2"></path>
+                        </svg>How to play
+                     </div>
+                     </div>
+                     <div data-v-3c1bee29="" class="TimeLeft__C-l1-r" onclick="location.href = '/trx_block?block_id=web'"><svg data-v-3c1bee29=""
+                        xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <path data-v-3c1bee29=""
+                           d="M22.3206 29.4914C20.713 30.1573 18.99 30.5 17.25 30.5C13.7359 30.5 10.3657 29.104 7.88084 26.6192C5.39598 24.1343 4 20.7641 4 17.25C4 13.7359 5.39598 10.3657 7.88083 7.88083C10.3657 5.39598 13.7359 4 17.25 4C18.99 4 20.713 4.34272 22.3206 5.0086C23.9281 5.67447 25.3888 6.65046 26.6192 7.88083C27.8495 9.11121 28.8255 10.5719 29.4914 12.1794C30.1573 13.787 30.5 15.51 30.5 17.25C30.5 18.99 30.1573 20.713 29.4914 22.3206C28.8255 23.9281 27.8495 25.3888 26.6192 26.6192C25.3888 27.8495 23.9281 28.8255 22.3206 29.4914ZM31.95 31.9985C31.9436 31.9985 31.9355 31.9971 31.9282 31.9941C31.9242 31.9925 31.922 31.9911 31.9214 31.9906L29.1369 29.2062C29.1268 29.1953 29.1211 29.1809 29.1211 29.166C29.1211 29.152 29.1261 29.1385 29.1351 29.1279C29.1381 29.1254 29.1407 29.124 29.1432 29.123C29.1472 29.1213 29.1535 29.1197 29.1619 29.1197C29.1774 29.1197 29.1952 29.1249 29.2127 29.1404L31.9929 31.9206C31.9948 31.9226 31.9963 31.9243 31.9975 31.926C31.9989 31.928 31.9998 31.9299 32.0005 31.9317C32.0022 31.9357 32.0037 31.942 32.0037 31.9504C32.0037 31.9608 32.0014 31.9723 31.9952 31.984C31.9756 31.9955 31.9587 31.9985 31.95 31.9985Z"
+                           stroke="currentColor" stroke-width="2"></path>
+                     </svg>Public Chain Query
+                  </div>
+                  </div>
+                  <div data-v-3c1bee29="" class="TimeLeft__C-l2">
+                     <div data-v-3c1bee29="" id="period"></div>
+                     <div data-v-3c1bee29="" class="TimeLeft__C-time"><span data-v-3c1bee29="">Draw time</span>
+                        <div data-v-3c1bee29="">0</div>
+                        <div data-v-3c1bee29="">0</div>
+                        <div data-v-3c1bee29="" notime="">:</div>
+                        <div data-v-3c1bee29="">3</div>
+                        <div data-v-3c1bee29="">3</div>
+                     </div>
+                  </div>
+                  <div data-v-3c1bee29="" class="TimeLeft__C-l3">
+                     <div data-v-3c1bee29="" class="num4"></div>
+                     <div data-v-3c1bee29="" class="num6 prize 6"></div>
+                     <div data-v-3c1bee29="" class="num1"></div>
+                     <div data-v-3c1bee29="" class="num8"></div>
+                     <div data-v-3c1bee29="" class="num8"></div>
+                     <p data-v-3c1bee29="" class="num6 prize6"></p>
+                  </div><!-- 规则弹层 begin--><!-- 规则弹层 begin--><!----><!---->
+               </div><!-- 投注表 -->
+               <%- include('element/e_bet.ejs') -%>
+                  <!-- 投注内容 begin --><!----><!----><!-- 规则弹层 begin--><!----><!---->
+      </div><!-- 记录导航 -->
+      <div data-v-a9660e98="" class="game-list p-b-20"><%- include('element/list-order.ejs') -%></div>
+      <div class="van-overlay" data-v-c91450ee="" style="display: none;"><!----></div>
+      <div role="dialog" tabindex="0" class="van-popup van-popup--round van-popup--center play-dialogue" data-v-c91450ee=""
+         style="z-index: 2006;display: none;">
+         <div data-v-a2883285="" data-v-c91450ee="" class="bet-rule">
+            <div data-v-a2883285="" class="bet-rule-head">
+               <div data-v-a2883285="" class="sound-dot"></div><span data-v-a2883285="">· TRXwingo <span class="gameTime"></span> ·</span>
+               <div data-v-a2883285="" class="sound-dot"></div>
+            </div>
+            <div data-v-a2883285="" class="bet-rule-body">
+               <div data-v-c91450ee="">
+                  <p>What is a hash value?</p>
+                  <p><br></p>
+                  <p>A person of Bitcoin's fundamental value is exposed to one knowledge, one hash value.</p>
+                  <p><br></p>
+                  <p>Hash is a value algorithm calculated with a hash function (or hash function/hash), and we can also
+                     translate it into a hash, so the hash value is also called a hash value. . To understand hash values, you
+                     must understand hash functions. A hash function can computationally transform an input of arbitrary
+                     length into an output of fixed length.</p>
+                  <p><br></p>
+                  <p>Functions all have the property that if the input value is the same, the output hash value is the same.
+                     If the input value is different, the output hash value is usually different, but if the event is
+                     extremely small. If the hash value is solved when the input value changes, the hash function has a hash
+                     value that is non-reversible and easy to verify, and if there is indeed a derived value, if it is
+                     possible to achieve the hash value of the output input value, you can Hash value for immediate
+                     verification.</p>
+                  <p><br></p>
+                  <p>The value of each block is unique, eternal and unrevealable, undeniable at the time, the awards
+                     circulating in the blockchain are automatically tampered with, and the records cannot be tampered with.
+                  </p>
+                  <p><br></p>
+                  <p><br></p>
+                  <p>USDT have how many type?</p>
+                  <p><br></p>
+                  <p>1) Based on Bitcoin platform Omni-USDT, deposit address is Bitcoin address, withdrawal is bitcoin
+                     network.</p>
+                  <p><br></p>
+                  <p>2)Bases on Ethereum platform ERC20 protocol, deposit address is based on ETH address, withdrawal also
+                     based on ETH network.</p>
+                  <p><br></p>
+                  <p>3)Based on TRC20-USDT, TRC20 protocal and TRX Network, deposit address using TRON address, withdrawal
+                     using TRON network.</p>
+                  <p><br></p>
+                  <p>Trx WinGo is based on TRC20 Protocal and TRX network (TRC20-USDT) Block hash last 1 digit to giving the
+                     result, (Can click the Block Height to check the Block Hash)</p>
+                  <p><br></p>
+                  <p><br></p>
+                  <p>How To Play:</p>
+                  <p><br></p>
+                  <p>1)<span class="gameTime"></span> game, within 55 second need to place bet, before 5 second unable to place bet</p>
+                  <p><br></p>
+                  <p>2)After the betting close, latest has value will be the result</p>
+                  <p><br></p>
+                  <p>3)Bet for whole day, One day total bet is 1440 time.</p>
+                  <p><br></p>
+                  <p>4)If you bet of 100, will deduct 2 fee, so your betting amount will be 98</p>
+                  <p><br></p>
+                  <p>5)3 minute 1 time, 5 minute 1 time, 10 minute 1 time rule same as the 1 minute 1 time, except open result
+                     time not same.</p>
+                  <p><br></p>
+                  <p>6)Block hash last digit will be the result:</p>
+                  <p><br></p>
+                  <p>Example:</p>
+                  <p><br></p>
+                  <p>Hash Value **b569, result will be 9</p>
+                  <p><br></p>
+                  <p>Hash Value **d14c, result will be 4</p>
+                  <p><br></p>
+                  <p><br></p>
+                  <p>-When you bet on Green: If the result either 1,3,7,9, you will get (98*2)=196, if the result is 5, you
+                     will get (98*1.5)=147</p>
+                  <p><br></p>
+                  <p>-When you bet on Red: If the result either 2,4,6,8, you will get (98*2)=196, if the result is 0, you will
+                     get (98*1.5)=147</p>
+                  <p><br></p>
+                  <p>-When you bet on Purple/Violet: If the result either 0 or 5, you will get (98*4.5)=441</p>
+                  <p><br></p>
+                  <p>When you bet on Number bet: When the result is same as your bet, you will get (98*9)882</p>
+                  <p><br></p>
+                  <p>-When you bet on Big: When the result showing either 5,6,7,8,9, you will get (98x2)=196</p>
+                  <p><br></p>
+                  <p>-When you bet on Small: When the result showing either 0,1,2,3,4, you will get (98x2)=196</p>
+               </div>
+            </div>
+            <div data-v-a2883285="" class="bet-rule-foot">
+               <div data-v-a2883285="" class="bet-rule-foot-btn">Close</div>
+            </div>
+         </div><!---->
+      </div>
+      <!-- 弹窗组件 -->
+      <div data-v-3e71d3da="" data-v-ac90c264="" class="dialog inactive">
+         <div data-v-3e71d3da="" class="dialog__container" role="dialog" tabindex="0">
+            <div data-v-3e71d3da="" class="dialog__container-img"><img data-v-3e71d3da="" class="" alt=""
+                  data-origin="/assets/png/tip-2298bb83.png" src="/assets/png/tip-2298bb83.png"></div>
+            <div data-v-3e71d3da="" class="dialog__container-title">
+               <h1 data-v-3e71d3da=""></h1>
+            </div>
+            <div data-v-3e71d3da="" class="dialog__container-content">
+               <div data-v-ac90c264=""></div>
+            </div>
+            <div data-v-3e71d3da="" class="dialog__container-footer"><button data-v-3e71d3da="">Confirm</button><button
+                  data-v-3e71d3da="">Cancel</button></div><!--v-if-->
+         </div>
+         <div data-v-3e71d3da="" class="dialog__outside"></div>
+      </div><!-- 中奖提示组件 -->
+        <%- include('element/result_popup.ejs') -%>
+      /*<div data-v-e44179e3="" data-v-ac90c264="" class="WinningTip__C" style="display: none;">
+         <div data-v-e44179e3="" class="WinningTip__C-body">
+            <div data-v-e44179e3="" class="WinningTip__C-body-l1">Congratulations</div>
+            <div data-v-e44179e3="" class="WinningTip__C-body-l2 typeundefined">Lottery results <div data-v-e44179e3="">
+               </div>
+               <div data-v-e44179e3="" class="WinningNum"></div>
+               <div data-v-e44179e3="">Small</div>
+            </div>
+            <div data-v-e44179e3="" class="WinningTip__C-body-l3">
+               <div data-v-e44179e3="" class="head">Bonus</div>
+               <div data-v-e44179e3="" class="bonus"></div>
+               <div data-v-e44179e3="" class="gameDetail">Period: </div>
+            </div>
+            <div data-v-e44179e3="" class="WinningTip__C-body-l4">
+               <div data-v-e44179e3="" class="acitveBtn"></div> 3 seconds auto close
+            </div>
+            <div data-v-e44179e3="" class="closeBtn"></div>
+         </div>*/
+      </div><audio id="voice1">
+         <source src="/assets/mp3/di1-0f3d86cb.mp3" type="audio/mpeg">
+      </audio><audio id="voice2">
+         <source src="/assets/mp3/di2-ad9aa8fb.mp3" type="audio/mpeg">
+      </audio>
+   </div><!--online custom service-->
+   <div class="customer" id="customerId" onclick="location.href='/support'"
+      style="--f13b4d11-currentFontFamily: 'Roboto', 'Inter', sans-serif; --f6a705e1-currentFontFamily: bahnschrift;">
+      <img class="" data-origin="/assets/png/icon_sevice-8a1f5628.png" src="/assets/png/icon_sevice-8a1f5628.png">
+   </div><!--v-if--><!--v-if--><!--v-if--><!----><!----><!----><!----><!----><!---->
+   </div>
+   <script src="/js/client.js"></script>
+   <script src="/trx_wingo/main.js"></script>
+</body>
+<style>
+   @media print {
+      #simplify-jobs-container {
+         display: none;
+      }
+   }
+</style>
+<div id="simplify-jobs-container"
+   style="position: absolute; top: 0px; left: 0px; width: 0px; height: 0px; overflow: visible; z-index: 2147483647;">
+</div>
+<script id="simplify-jobs-page-script"
+   src="chrome-extension://pbanhockgagggenencehbnadejlgchfc/js/pageScript.bundle.js"></script>
+
+</html>

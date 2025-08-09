@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Live Chat</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f5f5;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating abstract blobs */
+
+
+
+
+/* Chat UI */
+.chat-container {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    /* border-radius: 15px; */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #000098;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    /* font-size: 18px;
+    font-weight: bold; */
+}
+
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 80%;
+}
+
+.bot-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bot-message img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-message {
+    background: black;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 20px;
+    align-self: flex-end;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    background: rgb(0 0 152);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: #eee;
+    font-size: 16px;
+}
+
+.chat-input-area button {
+    /* padding: 12px; */
+    height: 44px;
+    width: 44px;
+    border: none;
+    border-radius: 70px;
+    background: #ffffff;
+    color: #000098;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0px 0px 0px 8px;
+}
+
+.chat-input-area button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-message {
+    color: #000098;
+    font-size: 13px;
+    padding: 10px 15px;
+    text-align: center;
+    max-width: 100%;
+    align-self: center;
+    opacity: 0.8;
+}
+</style>
+</head>
+
+
+<body>
+    <div class="chat-container">
+      
+        <header class="chat-header"> <a  onclick="location.href='/home'"><img src="/h5setting_202308141709544lm1.png" alt="" style="width: 10%;"></a> </header>
+        <div class="chat-box" id="chatBox"></div>
+        <div class="chat-input-area">
+            <input type="text" id="userInput" placeholder="Ask me about a resource..." autofocus>
+            <button id="sendBtn">➤</button>
+        </div>
+    </div>
+    <!-- <h2>Chat with us</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="userInput" placeholder="Ask a question...">
+    <button onclick="searchChat()">Send</button>
+    <div class="chatBox">
+
+    </div>
+
+    <script>
+        const data = [{
+            "id": 1,
+            "user": "What are the primary colors?",
+            "chatgpt": "The primary colors are red, blue, and yellow."
+        }, {
+            "id": 2,
+            "user": "Which color is created by mixing red and blue?",
+            "chatgpt": "Mixing red and blue creates purple."
+        }, {
+            "id": 3,
+            "user": "What color do you get when you mix yellow and blue?",
+            "chatgpt": "Mixing yellow and blue results in green."
+        }, {
+            "id": 4,
+            "user": "What color is a combination of red and yellow?",
+            "chatgpt": "Red and yellow combine to create orange."
+        }, {
+            "id": 5,
+            "user": "Which color has the shortest wavelength?",
+            "chatgpt": "Violet has the shortest wavelength of visible light."
+        }, {
+            "id": 6,
+            "user": "What color do you get when you mix all primary colors together?",
+            "chatgpt": "Mixing all primary colors typically results in a brown or gray color."
+        }, {
+            "id": 7,
+            "user": "What color symbolizes peace?",
+            "chatgpt": "White is often used to symbolize peace."
+        }, {
+            "id": 8,
+            "user": "Which color is commonly associated with nature?",
+            "chatgpt": "Green is commonly associated with nature and the environment."
+        }, {
+            "id": 9,
+            "user": "What does the color red often signify?",
+            "chatgpt": "Red often signifies passion, love, or danger."
+        }, {
+            "id": 10,
+            "user": "Which color is considered calming and is often used in bedrooms?",
+            "chatgpt": "Blue is considered calming and is often used in bedrooms."
+        }, {
+            "id": 11,
+            "user": "What color is the sky on a clear day?",
+            "chatgpt": "The sky is typically blue on a clear day."
+        }, {
+            "id": 12,
+            "user": "Which color represents happiness and positivity?",
+            "chatgpt": "Yellow often represents happiness and positivity."
+        }, {
+            "id": 13,
+            "user": "What color is often used in traffic signs to indicate caution?",
+            "chatgpt": "Yellow is commonly used in traffic signs to indicate caution."
+        }, {
+            "id": 14,
+            "user": "Which color is a mixture of black and white?",
+            "chatgpt": "A mixture of black and white results in gray."
+        }, {
+            "id": 15,
+            "user": "What color is formed by mixing blue and green?",
+            "chatgpt": "Mixing blue and green creates cyan or teal, depending on the ratio."
+        }, {
+            "id": 16,
+            "user": "Which color is often associated with royalty and luxury?",
+            "chatgpt": "Purple is often associated with royalty and luxury."
+        }, {
+            "id": 17,
+            "user": "What color symbolizes purity and innocence?",
+            "chatgpt": "White symbolizes purity and innocence."
+        }, {
+            "id": 18,
+            "user": "What color is the ocean typically?",
+            "chatgpt": "The ocean often appears blue due to the reflection of the sky."
+        }, {
+            "id": 19,
+            "user": "Which color is used to symbolize love and romance?",
+            "chatgpt": "Red is often used to symbolize love and romance."
+        }, {
+            "id": 20,
+            "user": "What color is a mixture of yellow and green?",
+            "chatgpt": "Mixing yellow and green results in a lime or chartreuse color."
+        }, {
+            "id": 21,
+            "user": "Which color is most commonly associated with energy and enthusiasm?",
+            "chatgpt": "Orange is associated with energy and enthusiasm."
+        }, {
+            "id": 22,
+            "user": "What color is a sunflower?",
+            "chatgpt": "A sunflower is typically yellow."
+        }, {
+            "id": 23,
+            "user": "What does a green traffic light mean?",
+            "chatgpt": "A green traffic light means 'go.'"
+        }, {
+            "id": 24,
+            "user": "Which color represents jealousy or envy?",
+            "chatgpt": "Green is often associated with jealousy or envy."
+        }, {
+            "id": 25,
+            "user": "What color is a ripe banana?",
+            "chatgpt": "A ripe banana is yellow."
+        }, {
+            "id": 26,
+            "user": "What is the complementary color of blue?",
+            "chatgpt": "The complementary color of blue is orange."
+        }, {
+            "id": 27,
+            "user": "What color is associated with mourning in many cultures?",
+            "chatgpt": "Black is often associated with mourning."
+        }, {
+            "id": 28,
+            "user": "Which color represents tranquility and peace?",
+            "chatgpt": "Blue often represents tranquility and peace."
+        }, {
+            "id": 29,
+            "user": "What color is a lemon?",
+            "chatgpt": "A lemon is typically yellow."
+        }, {
+            "id": 30,
+            "user": "Which color is used to symbolize strength and power?",
+            "chatgpt": "Black is often used to symbolize strength and power."
+        }]
+
+
+        function searchChat(keyword) {
+            const userInput = document.querySelector('#userInput').value;
+            console.log(userInput)
+            const results = data.filter(chat =>
+                chat.user.toLowerCase().includes(userInput.toLowerCase()) ||
+                chat.chatgpt.toLowerCase().includes(userInput.toLowerCase())
+            );
+            console.log(userInput)
+            const chatBox = document.querySelector('.chatBox');
+            const div = document.createElement('div');
+
+            // Display results as a string or a more formatted representation
+            if (results.length > 0) {
+                div.textContent = 'Search Results: \n' + results.map(chat => `User: ${chat.user}, ChatGPT: ${chat.chatgpt}`).join('\n');
+                chatBox.append(div);
+                console.log('Search Results:', results);
+            } else {
+                div.textContent = 'No results found!';
+                chatBox.append(div);
+                console.log('No results found!');
+            }
+        }
+    </script> -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async() => {
+            const chatBox = document.getElementById("chatBox");
+            const userInput = document.getElementById("userInput");
+            const sendBtn = document.getElementById("sendBtn");
+
+            let processedSitemap = {};
+
+            // Greeting pool for initial bot response
+            const greetings = [
+                [
+                    "What are the primary colors?",
+                    "Which color is created by mixing red and blue?",
+                    "What color do you get when you mix yellow and blue?",
+                    "What color is a combination of red and yellow?",
+                    "Which color has the shortest wavelength?",
+                    "What color do you get when you mix all primary colors together?",
+                    "What color symbolizes peace?",
+                    "Which color is commonly associated with nature?",
+                    "What does the color red often signify?",
+                    "Which color is considered calming and is often used in bedrooms?",
+                    "What color is the sky on a clear day?",
+                    "Which color represents happiness and positivity?",
+                    "What color is often used in traffic signs to indicate caution?",
+                    "Which color is a mixture of black and white?",
+                    "What color is formed by mixing blue and green?",
+                    "Which color is often associated with royalty and luxury?",
+                    "What color symbolizes purity and innocence?",
+                    "What color is the ocean typically?",
+                    "Which color is used to symbolize love and romance?",
+                    "What color is a mixture of yellow and green?",
+                    "Which color is most commonly associated with energy and enthusiasm?",
+                    "What color is a sunflower?",
+                    "What does a green traffic light mean?",
+                    "Which color represents jealousy or envy?",
+                    "What color is a ripe banana?",
+                    "What is the complementary color of blue?",
+                    "What color is associated with mourning in many cultures?",
+                    "Which color represents tranquility and peace?",
+                    "What color is a lemon?",
+                    "Which color is used to symbolize strength and power?"
+                ]
+
+            ];
+
+            // Message templates for bot replies
+            const responseTemplates = [
+                "The primary colors are red, blue, and yellow.",
+                "Mixing red and blue creates purple.",
+                "Mixing yellow and blue results in green.",
+                "Red and yellow combine to create orange.",
+                "Violet has the shortest wavelength of visible light.",
+                "Mixing all primary colors typically results in a brown or gray color.",
+                "White is often used to symbolize peace.",
+                "Green is commonly associated with nature and the environment.",
+                "Red often signifies passion, love, or danger.",
+                "Blue is considered calming and is often used in bedrooms.",
+                "The sky is typically blue on a clear day.",
+                "Yellow often represents happiness and positivity.",
+                "Yellow is commonly used in traffic signs to indicate caution.",
+                "A mixture of black and white results in gray.",
+                "Mixing blue and green creates cyan or teal, depending on the ratio.",
+                "Purple is often associated with royalty and luxury.",
+                "White symbolizes purity and innocence.",
+                "The ocean often appears blue due to the reflection of the sky.",
+                "Red is often used to symbolize love and romance.",
+                "Mixing yellow and green results in a lime or chartreuse color.",
+                "Orange is associated with energy and enthusiasm.",
+                "A sunflower is typically yellow.",
+                "A green traffic light means 'go.'",
+                "Green is often associated with jealousy or envy.",
+                "A ripe banana is yellow.",
+                "The complementary color of blue is orange.",
+                "Black is often associated with mourning.",
+                "Blue often represents tranquility and peace.",
+                "A lemon is typically yellow.",
+                "Black is often used to symbolize strength and power."
+            ];
+
+            // Fetch and process sitemap
+            try {
+                const response = await fetch("https://mux8.com/sitemap.json");
+                const sitemapData = await response.json();
+                processedSitemap = preprocessSitemap(sitemapData);
+                console.log("✅ Processed Sitemap:", processedSitemap); // Debugging
+            } catch (error) {
+                console.error("❌ Failed to load sitemap:", error);
+            }
+
+            sendBtn.addEventListener("click", sendMessage);
+            userInput.addEventListener("keypress", event => {
+                if (event.key === "Enter") sendMessage();
+            });
+
+            // Send message when user clicks the send button or presses Enter
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+
+                appendMessage(message, "user");
+                userInput.value = "";
+
+                setTimeout(() => {
+                    const response = generateResponse(message);
+                    appendMessage(response, "bot");
+                }, 500);
+            }
+
+            // Append message (with word-by-word animation for bot)
+            function appendMessage(text, sender) {
+                const messageElement = document.createElement("div");
+                messageElement.classList.add("chat-message", sender === "user" ? "user-message" : "bot-message");
+
+                if (sender === "bot") {
+                    const img = document.createElement("img");
+                    img.src = "https://mux8.com/img/mux/pink-gradient.png";
+                    messageElement.appendChild(img);
+                }
+
+                const textDiv = document.createElement("div");
+                messageElement.appendChild(textDiv);
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                // For bot messages, ensure HTML links are rendered correctly
+                if (sender === "bot") {
+                    // Animate the text word-by-word, but ensure HTML tags like <a> remain intact
+                    animateText(textDiv, text);
+                } else {
+                    textDiv.textContent = text; // For user messages, plain text is fine
+                }
+            }
+
+            // Animate text one word at a time
+            function animateText(element, text) {
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = text; // Parse HTML properly
+
+                const words = [];
+                tempDiv.childNodes.forEach(node => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        words.push(...node.textContent.split(" ")); // Split text nodes into words
+                    } else {
+                        words.push(node.outerHTML); // Keep HTML elements (like links) intact as one unit
+                    }
+                });
+
+                let index = 0;
+
+                function typeNextWord() {
+                    if (index < words.length) {
+                        element.innerHTML += words[index] + " "; // Add word or entire HTML element
+                        index++;
+                        setTimeout(typeNextWord, 100); // Adjust typing speed here
+                    }
+                }
+
+                typeNextWord();
+            }
+
+
+            function cleanString(str) {
+                return str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+            }
+
+            // Preprocess sitemap data for easy matching
+            function preprocessSitemap(data, currentPath = "/") {
+                let flattened = {};
+
+                function traverse(obj, path) {
+                    for (const key in obj) {
+                        if (!obj.hasOwnProperty(key)) continue;
+
+                        const newPath = `${path}/${key}`.replace("//", "/").replace("/index.html", "");
+                        const cleanedKey = cleanString(key);
+                        const searchableKey = cleanString(newPath.replace("/main", "")); // Keep paths searchable
+
+                        if (typeof obj[key] === "object" && obj[key] !== null) {
+                            traverse(obj[key], newPath);
+                        } else {
+                            let finalPath = newPath.replace("/main", ""); // Fix extra /main/main issue
+                            flattened[searchableKey] = finalPath;
+                            flattened[cleanedKey] = finalPath; // Allow simpler lookups
+                        }
+                    }
+                }
+
+                traverse(data, "/");
+                return flattened;
+            }
+
+            // Find best match based on query
+            function findBestMatch(query) {
+                const cleanedQuery = cleanString(query);
+                let bestMatch = null;
+                let highestScore = 0;
+
+                for (const key in processedSitemap) {
+                    let score = matchScore(cleanedQuery, key);
+                    if (score > highestScore) {
+                        highestScore = score;
+                        bestMatch = processedSitemap[key];
+                    }
+                }
+
+                console.log(`🧐 User Query: "${query}" → Best Match: "${bestMatch}"`); // Debugging
+
+                return bestMatch;
+            }
+
+            // Calculate match score for query
+            function matchScore(query, key) {
+                if (query === key) return 100; // Exact match
+                if (key.includes(query)) return query.length * 2; // Partial match
+
+                let score = 0;
+                if (query.split("").every(char => key.includes(char))) score += 10; // Loose match
+
+                return score;
+            }
+
+            // Generate response for the user
+            function generateResponse(userMessage) {
+                const bestMatch = findBestMatch(userMessage);
+                if (!bestMatch) return "Sorry, I couldn't find that resource.";
+
+                let fullUrl = `https://mux8.com${bestMatch}`;
+
+                // Select a random response template
+                const randomTemplate = responseTemplates[Math.floor(Math.random() * responseTemplates.length)];
+
+                // Replace **all** occurrences of `{url}`
+                const formattedResponse = randomTemplate.replaceAll("{url}", fullUrl);
+
+                return formattedResponse;
+            }
+
+            // Send a random greeting when the page loads (if it's the first message)
+            setTimeout(() => {
+                appendMessage(greetings[Math.floor(Math.random() * greetings.length)], "bot");
+            }, 1000); // Delay to simulate bot thinking
+
+            // Function to insert an intro message at the start
+            function insertIntroMessage() {
+                const introMessage = document.createElement("div");
+                introMessage.classList.add("intro-message");
+                introMessage.textContent = "Welcome to the BigMumbai. This chatbot is here to help you find resources using natural language rather than having to type in a search bar. At the moment, the chatbot has very limited knowledge and can only respond to messages with the closest match of the webpage/file you're looking for.";
+
+                chatBox.appendChild(introMessage);
+            }
+
+            // Insert intro message on page load
+            insertIntroMessage();
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Setting</title>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+		<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/dist/css/adminlte.min.css">
+		<link rel="stylesheet" href="/css/admin.css">
+		<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<style>
+			.container-fluid {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+			}
+
+			.form-group button {
+				margin-top: 30px;
+			}
+
+			.card-header {
+				text-align: center;
+			}
+
+			.timer-digit {
+				margin: 0 2px;
+				padding: 4px;
+				font-size: 24px;
+				background: #f2f2f2;
+				border: 1px solid black;
+				color: #0f1223;
+				border-radius: 5px;
+			}
+
+			.timer-container {
+				display: inline-flex;
+				align-items: center;
+			}
+
+			.btn-option {
+				width: 50%;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				cursor: pointer;
+				border-radius: 5px;
+				border: none;
+				color: #fff;
+				background-color: #0056b3;
+			}
+
+			.btn-option:hover {
+                color: #fff;
+				background-color: #071251;
+			}
+
+			.label-options {
+			    font-size: 1.8rem;
+			    margin: 0;
+			    color: #3498db;
+			}
+		</style>
+	</head>
+	<body class="hold-transition sidebar-mini">
+		<div class="wrapper"><%- include('nav') %> <div class="content-wrapper">
+		        <!--
+				<section class="content-header">
+					<div class="container-fluid">
+						<div class="row mb-2">
+							<div class="col-sm-6">
+								<h1>Prediction</h1>
+							</div>
+						</div>
+					</div>
+				</section>
+				-->
+				<div class="container-fluid">
+					<div class="row">
+						<div>
+							<button class="btn btn-option" onclick="window.location='/cricketmatches'">Cricket Matches</button>
+							<button class="btn btn-option" onclick="window.location='/cricketquestions'">Cricket Questions</button>
+							<button class="btn btn-option" onclick="window.location='/cricketbetting'">Cricket Bets</button>
+						</div>
+						<div class="col-md-12">
+							<div style="padding: 10px 20px;margin-bottom: 200px">
+								<div class="form-group">
+									<div class="text-center"></div>
+									<label for="quantity" class="label-options">AVIATOR</label>
+									<br>
+									<strong>Crashpoint: </strong>
+									<span id="aviset-info"></span>
+									<br> 1x - 100x <input type="text" class="form-control" placeholder="" id="edit-aviset-info" value="">
+									<br>
+									<button type="submit" class="btn btn-primary edit-aviset" style="width: 100%;margin-bottom: 20px">Submit</button>
+									<br>
+									<label for="quantity" class="label-options">DICE</label>
+									<br>
+									<strong>Period: </strong>
+									<span id="becone-period"></span>
+									<br>
+									<strong>Prediction: </strong>
+									<span id="becone-info"></span>
+									<br> 4 - 92 <br>
+									<div id="beconetimer" class="timer-container"></div>
+									<br>
+									<input type="text" class="form-control" placeholder="" id="edit-becone-info" value="">
+									<br>
+									<button type="submit" class="btn btn-primary edit-becone" style="width: 100%;margin-bottom: 20px">Submit</button>
+									<label for="quantity" class="label-options">ANDAR-BAHAR</label>
+									<br>
+									<strong>Period: </strong>
+									<span id="ab-period"></span>
+									<br>
+									<strong>Prediction: </strong>
+									<span id="ab-info"></span>
+									<br> 1 - <span style="color: #6298e8">ANDAR</span>
+									<br> 2 - <span style="color: #da393f">BAHAR</span>
+									<br> 3 - <span style="color: #ffa33b">TIE</span>
+									<br>
+									<div id="abtimer" class="timer-container"></div>
+									<br>
+									<input type="text" class="form-control" placeholder="" id="edit-ab-info" value="">
+									<br>
+									<button type="submit" class="btn btn-primary edit-ab" style="width: 100%;margin-bottom: 20px">Submit</button>
+									<label for="quantity" class="label-options">ROULETTE</label>
+									<br>
+									<strong>Period: </strong>
+									<span id="vip-period"></span>
+									<br>
+									<strong>Prediction: </strong>
+									<span id="vip-info"></span>
+									<br> 1 &nbsp; - <span style="color: #fa3c09">REDLION</span>
+									<br> 2 &nbsp; - <span style="color: #fa3c09">REDELEPHANT</span>
+									<br> 3 &nbsp; - <span style="color: #279f79">GREENKING</span>
+									<br> 4 &nbsp; - <span style="color: #279f79">GREENCOW</span>
+									<br> 5 &nbsp; - <span style="color: #279f79">GREENELEPHANT</span>
+									<br> 6 &nbsp; - <span style="color: #279f79">GREENLION</span>
+									<br> 7 &nbsp; - <span style="color: #f2cb00">YELLOWKING</span>
+									<br> 8 &nbsp; - <span style="color: #f2cb00">YELLOWCOW</span>
+									<br> 9 &nbsp; - <span style="color: #f2cb00">YELLOWELEPHANT</span>
+									<br> 10 - <span style="color: #f2cb00">YELLOWLION</span>
+									<br>
+									<div id="viptimer" class="timer-container"></div>
+									<br>
+									<input type="text" class="form-control" placeholder="" id="edit-vip-info" value="">
+									<br>
+									<button type="submit" class="btn btn-primary edit-vip" style="width: 100%;margin-bottom: 20px">Submit</button>
+									<label for="quantity" class="label-options">WHEELOCITY</label>
+									<br>
+									<strong>Period: </strong>
+									<span id="wheel-period"></span>
+									<br>
+									<strong>Prediction: </strong>
+									<span id="wheel-info"></span>
+									<br> 1 - <span style="color: #626b76">BLACK</span>
+									<br> 2 - <span style="color: #fa4359">RED</span>
+									<br> 3 - <span style="color: #3c96ff">BLUE</span>
+									<br> 4 - <span style="color: #5ec221">GREEN</span>
+									<br>
+									<div id="wheeltimer" class="timer-container"></div>
+									<br>
+									<input type="text" class="form-control" placeholder="" id="edit-wheel-info" value="">
+									<br>
+									<button type="submit" class="btn btn-primary edit-wheel" style="width: 100%;margin-bottom: 20px">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="/plugins/jquery/jquery.min.js"></script>
+		<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/dist/js/adminlte.min.js"></script>
+		<script src="/js/admin/admin.js"></script>
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+		<script>
+			function beconetimer() {
+				var countDownDate = Date.parse(new Date) / 1e3;
+				var now = new Date().getTime();
+				var distance = 60 - countDownDate % 60;
+				var i = distance / 60,
+					n = distance % 60,
+					o = n / 10,
+					s = n % 10;
+				var minutes = Math.floor(i);
+				var seconds = ('0' + Math.floor(n)).slice(-2);
+				var sec1 = (seconds % 100 - seconds % 10) / 10;
+				var sec2 = seconds % 10;
+				document.getElementById("beconetimer").innerHTML = `
+                
+																																																											<div class="timer-digit">0</div>
+																																																											<div class="timer-digit">${Math.floor(minutes)}</div>
+																																																											<div>:</div>
+																																																											<div class="timer-digit">${sec1}</div>
+																																																											<div class="timer-digit">${sec2}</div>
+            `;
+			}
+			beconetimer();
+			var interval = setInterval(beconetimer, 1000);
+
+			function abtimer() {
+				var countDownDate = Date.parse(new Date) / 1e3;
+				var now = new Date().getTime();
+				var distance = 60 - countDownDate % 60;
+				var i = distance / 60,
+					n = distance % 60,
+					o = n / 10,
+					s = n % 10;
+				var minutes = Math.floor(i);
+				var seconds = ('0' + Math.floor(n)).slice(-2);
+				var sec1 = (seconds % 100 - seconds % 10) / 10;
+				var sec2 = seconds % 10;
+				document.getElementById("abtimer").innerHTML = `
+                
+																																																											<div class="timer-digit">0</div>
+																																																											<div class="timer-digit">${Math.floor(minutes)}</div>
+																																																											<div>:</div>
+																																																											<div class="timer-digit">${sec1}</div>
+																																																											<div class="timer-digit">${sec2}</div>
+            `;
+			}
+			abtimer();
+			var interval = setInterval(abtimer, 1000);
+
+			function viptimer() {
+				var countDownDate = Date.parse(new Date) / 1e3;
+				var now = new Date().getTime();
+				var distance = 30 - countDownDate % 30;
+				var i = distance / 60,
+					n = distance % 60,
+					o = n / 10,
+					s = n % 10;
+				var minutes = Math.floor(i);
+				var seconds = ('0' + Math.floor(n)).slice(-2);
+				var sec1 = (seconds % 100 - seconds % 10) / 10;
+				var sec2 = seconds % 10;
+				document.getElementById("viptimer").innerHTML = `
+                
+																																																											<div class="timer-digit">0</div>
+																																																											<div class="timer-digit">${Math.floor(minutes)}</div>
+																																																											<div>:</div>
+																																																											<div class="timer-digit">${sec1}</div>
+																																																											<div class="timer-digit">${sec2}</div>
+            `;
+			}
+			viptimer();
+			var interval = setInterval(viptimer, 1000);
+
+			function wheeltimer() {
+				var countDownDate = Date.parse(new Date) / 1e3;
+				var now = new Date().getTime();
+				var distance = 30 - countDownDate % 30;
+				var i = distance / 60,
+					n = distance % 60,
+					o = n / 10,
+					s = n % 10;
+				var minutes = Math.floor(i);
+				var seconds = ('0' + Math.floor(n)).slice(-2);
+				var sec1 = (seconds % 100 - seconds % 10) / 10;
+				var sec2 = seconds % 10;
+				document.getElementById("wheeltimer").innerHTML = `
+                
+																																																											<div class="timer-digit">0</div>
+																																																											<div class="timer-digit">${Math.floor(minutes)}</div>
+																																																											<div>:</div>
+																																																											<div class="timer-digit">${sec1}</div>
+																																																											<div class="timer-digit">${sec2}</div>
+            `;
+			}
+			wheeltimer();
+			var interval = setInterval(wheeltimer, 1000);
+			$.ajax({
+				type: "POST",
+				url: "/admin/manager/settings/getOTH",
+				data: "data",
+				dataType: "json",
+				success: function(response) {
+					let aviset = response.data1[0];
+					let becone = response.data2[0];
+					let ab = response.data3[0];
+					let vip = response.data4[0];
+					let wheel = response.data5[0];
+
+					function updateElements() {
+						if (aviset.nxt === 0) {
+							$('#aviset-info').text('Not Set');
+						} else {
+							$('#aviset-info').text(aviset.nxt);
+						}
+						if (becone.nxt === 0) {
+							$('#becone-info').text('Not Set');
+						} else {
+							$('#becone-info').text(becone.nxt);
+						}
+						$('#becone-period').text(becone.period);
+						if (ab.nxt === 0) {
+							$('#ab-info').text('Not Set');
+						} else {
+							$('#ab-info').text(ab.nxt);
+						}
+						$('#ab-period').text(ab.period);
+						if (vip.nxt === 0) {
+							$('#vip-info').text('Not Set');
+						} else {
+							$('#vip-info').text(vip.nxt);
+						}
+						$('#vip-period').text(vip.period);
+						if (wheel.nxt === 0) {
+							$('#wheel-info').text('Not Set');
+						} else {
+							$('#wheel-info').text(wheel.nxt);
+						}
+						$('#wheel-period').text(wheel.period);
+					}
+					updateElements();
+					setInterval(function() {
+						updateElements();
+					}, 100);
+				}
+			});
+			$('.edit-becone').click(function(e) {
+				e.preventDefault();
+				const info = $('#edit-becone-info').val();
+				if (info < 4 || info > 92) {
+					alert("Input must be from 4 to 92.");
+					return; // Exit the function if the input is not valid
+				}
+				const typer = "becone";
+				$.ajax({
+					type: "POST",
+					url: "/admin/manager/settings/oth",
+					data: {
+						info: info,
+						typer: typer,
+					},
+					dataType: "json",
+					success: function(response) {
+						location.reload();
+					}
+				});
+			});
+			$('.edit-ab').click(function(e) {
+				e.preventDefault();
+				const info = $('#edit-ab-info').val();
+				if (info < 1 || info > 3) {
+					alert("Input must be from 1 to 3.");
+					return; // Exit the function if the input is not valid
+				}
+				const typer = "ab";
+				$.ajax({
+					type: "POST",
+					url: "/admin/manager/settings/oth",
+					data: {
+						info: info,
+						typer: typer,
+					},
+					dataType: "json",
+					success: function(response) {
+						location.reload();
+					}
+				});
+			});
+			$('.edit-vip').click(function(e) {
+				e.preventDefault();
+				const info = $('#edit-vip-info').val();
+				if (info < 1 || info > 10) {
+					alert("Input must be from 1 to 10.");
+					return; // Exit the function if the input is not valid
+				}
+				const typer = "vip";
+				$.ajax({
+					type: "POST",
+					url: "/admin/manager/settings/oth",
+					data: {
+						info: info,
+						typer: typer,
+					},
+					dataType: "json",
+					success: function(response) {
+						location.reload();
+					}
+				});
+			});
+			$('.edit-wheel').click(function(e) {
+				e.preventDefault();
+				const info = $('#edit-wheel-info').val();
+				if (info < 1 || info > 4) {
+					alert("Input must be from 1 to 4.");
+					return; // Exit the function if the input is not valid
+				}
+				const typer = "wheel";
+				$.ajax({
+					type: "POST",
+					url: "/admin/manager/settings/oth",
+					data: {
+						info: info,
+						typer: typer,
+					},
+					dataType: "json",
+					success: function(response) {
+						location.reload();
+					}
+				});
+			});
+			$('.edit-aviset').click(function(e) {
+				e.preventDefault();
+				const info = $('#edit-aviset-info').val();
+				if (info < 1 || info > 100) {
+					alert("Input must be from 1 to 100.");
+					return; // Exit the function if the input is not valid
+				}
+				const typer = "aviset";
+				$.ajax({
+					type: "POST",
+					url: "/admin/manager/settings/oth",
+					data: {
+						info: info,
+						typer: typer
+					},
+					dataType: "json",
+					success: function(response) {
+						location.reload();
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
